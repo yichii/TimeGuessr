@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Game {
+    // ATTENTION: This currently does not work. Please use .start() instead.
     public void menu() {
         do {
             Scanner menuScanner = new Scanner(System.in);
@@ -32,6 +33,7 @@ public class Game {
         } while (true);
     }
 
+    // run this method to start the game.
     public void start() {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();

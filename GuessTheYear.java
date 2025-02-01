@@ -1,23 +1,26 @@
-import java.time.*;
+import java.time.LocalDate;
+import java.util.Random;
 import java.util.Scanner;
 
 public class GuessTheYear {
-    public static void main(String[] args) {
-        LocalDate guess = LocalDate.of(2001, 1, 9);
+    public void start() {
+        Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-        int year;
+        LocalDate answer = LocalDate.of(random.nextInt(2025), 1, 9);
+        int year, guessCount = 1;
         System.out.print("Guess the date! Enter a year: ");
         do {
             year = scanner.nextInt();
-            if (year < guess.getYear()) {
+            if (year < answer.getYear()) {
                 System.out.print("Try a higher number! Guess again: ");
-            } else if (year > guess.getYear()){
+            } else if (year > answer.getYear()){
                 System.out.print("Try a lower number! Guess again: ");
             } else {
-                System.out.print("You got it right! The answer was: " + guess.getYear());
+                System.out.println("You got it right! The answer was: " + answer.getYear());
+                System.out.println("You guessed " + guessCount + " time(s)!");
             }
-        } while (year != guess.getYear());
+            guessCount++;
+        } while (year != answer.getYear());
         scanner.close();
     }
-
 }
